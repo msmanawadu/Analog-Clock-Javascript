@@ -9,7 +9,7 @@ function runTheClock() {
     var min = date.getMinutes();
     var sec = date.getSeconds();
 
-    //Math to calculate arm turning degrees (minute hand follows the second hand and hour hand follows the minute hand)
+    //Math to calculate arm turning angle degrees (minute hand follows the second hand and hour hand follows the minute hand)
     let hrPosition = (hr*360/12) + (min*(360/60)/12) ;
     let minPosition = (min*360/60) + (sec*(360/60)/60);
     let secPosition = sec*360/60;
