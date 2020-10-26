@@ -2,18 +2,16 @@ const HOURHAND = document.querySelector("#hour");
 const MINUTEHAND = document.querySelector("#minute");
 const SECONDHAND = document.querySelector("#second");
 
-//Arm turning degrees
-let hrPosition = 20;
-let minPosition = 130;
-let secPosition = 267;
-
 //get the current time
 var date = new Date();
 var hr = date.getHours();
 var min = date.getMinutes();
 var sec = date.getSeconds();
 
-console.log(hr + " Hours " + min + " minutes " + sec + " seconds");
+//Arm turning degrees (minute hand follows the second hand and hour hand follows the minute hand)
+let hrPosition = (hr*360/12) + (min*(360/60)/12) ;
+let minPosition = (min*360/60) + (sec*(360/60)/60);
+let secPosition = sec*360/60;
 
 //injecting in-line CSS styles
 HOURHAND.style.transform = "rotate(" + hrPosition + "deg)";
